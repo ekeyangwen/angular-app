@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Chien } from "src/app/models/chien";
 import { Cheval } from "src/app/models/cheval";
+import { Pipe, PipeTransform } from "@angular/core";
+import { orderBy } from "lodash";
 
 @Component({
   selector: "app-animal-view",
@@ -64,7 +66,7 @@ export class AnimalViewComponent implements OnInit {
 
   runCourse() {}
 
-  changeIndex() {
+  changeNameAndIndex() {
     for (let cheval of this.chevaux) {
       if (cheval._index < this.chevaux.length + 1) {
         cheval._index++;
@@ -73,9 +75,9 @@ export class AnimalViewComponent implements OnInit {
         cheval._index = 1;
       }
     }
+    let newChevauxArray = this.chevaux.sort((a, b) => a._index - b._index);
+    for (let newCheval of newChevauxArray) {
+      newCheval;
+    }
   }
-  getHTMLContent(e: any) {
-    console.log(e.innerHTML);
-  }
-  changeNameOrder() {}
 }

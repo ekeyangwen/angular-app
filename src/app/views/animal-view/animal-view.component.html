@@ -21,7 +21,7 @@
   <p>{{ monCheval.getIndex() }}</p>
   <div>
     <ul>
-      <li #horseList *ngFor="let item of chevaux">
+      <li id="horsesList" *ngFor="let item of chevaux">
         <span>
           <b>{{ item.getIndex() }}</b>
           <b>-</b>
@@ -29,7 +29,7 @@
         </span>
       </li>
     </ul>
-    <button (click)="changeIndex()">Lancer la course</button>
+    <button (click)="changeNameAndIndex()">Lancer la course</button>
   </div>
 </div>
 <div id="timer">
