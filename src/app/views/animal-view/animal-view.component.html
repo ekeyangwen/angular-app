@@ -1,0 +1,39 @@
+<p>
+  Animal: <b>{{ monchien.getName() }}</b>
+</p>
+<p [innerHTML]="moncontenu"></p>
+<button (click)="changeText()">change le texte</button>
+
+<div *ngIf="chiens && chiens.length > 2">
+  <ul>
+    <li *ngFor="let item of chiens; index as i">
+      <span
+        >{{ i }}- <b>{{ item.getName() }}</b></span
+      >
+    </li>
+  </ul>
+</div>
+
+<div>
+  <p>
+    Mon cheval: <b>{{ monCheval.getName() }}</b>
+  </p>
+  <p>{{ monCheval.getIndex() }}</p>
+  <div>
+    <ul>
+      <li #horseList *ngFor="let item of chevaux">
+        <span>
+          <b>{{ item.getIndex() }}</b>
+          <b>-</b>
+          <b>{{ item.getName() }}</b>
+        </span>
+      </li>
+    </ul>
+    <button (click)="changeIndex()">Lancer la course</button>
+  </div>
+</div>
+<div id="timer">
+  <button id="start" (click)="startTimer()">Start</button>
+  <button id="stop" (click)="stopTimer()">Stop</button>
+  <p>{{ timeLeft }} Seconds Left....</p>
+</div>
