@@ -21,8 +21,9 @@
   <p>{{ monCheval.getIndex() }}</p> -->
 <div>
   <ul>
-    <li id="horsesList" *ngFor="let item of chevaux; index as i">
-      <span>
+    <li id="horseNameAndIndex" *ngFor="let item of chevaux; index as i">
+      <img id="horse" src="../../../assets/Images/horse.png" alt="cheval" />
+      <span class="nameAndIndex">
         <b>{{ i + 1 }}</b>
         <b>-</b>
         <b>{{ item.getName() }}</b>
@@ -30,12 +31,14 @@
       <!-- <div class="winner">And the winner is : {{ item.getName() }}</div> -->
     </li>
   </ul>
-  <button (click)="runRace()">Lancer la course</button>
-</div>
-<!-- </div> -->
+  <div class="button">
+    <button id="run" (click)="runRace()">Lancer la course</button>
+  </div>
+  <!-- </div> -->
 
-<div id="timer">
-  <button id="stop" (click)="pauseTimer()">Pause</button>
-  <button id="stop" (click)="stopTimer()">Stop</button>
-  <p>{{ timeLeft }} Seconds Left....</p>
+  <div id="timer">
+    <button class="pause" (click)="pauseTimer()">Pause</button>
+    <button class="stop" (click)="stopTimer()">Stop</button>
+    <p>{{ timeLeft }} Seconds Left....</p>
+  </div>
 </div>
