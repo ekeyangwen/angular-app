@@ -19,7 +19,7 @@ export class AnimalViewComponent implements OnInit {
   constructor() {
     this.monchien = new Chien("Nemo", 0);
     this.chiens = [];
-    this.monCheval = new Cheval("", 0);
+    this.monCheval = new Cheval("Lila", 0);
     this.chevaux = [];
   }
 
