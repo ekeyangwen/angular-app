@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Chien } from "src/app/models/chien";
 import { Cheval } from "src/app/models/cheval";
-import { Pipe, PipeTransform } from "@angular/core";
-import { orderBy } from "lodash";
+import { shuffle } from "lodash";
+let getRandomValues = require("get-random-values");
 
 @Component({
   selector: "app-animal-view",
@@ -50,34 +50,40 @@ export class AnimalViewComponent implements OnInit {
     this.chevaux.push(new Cheval("Bernard", 5));
   }
 
+  startTimer() {}
+
+  runCourse() {}
+
   timeLeft: number = 60;
   interval: any;
+  a: number = 2;
 
-  startTimer() {
+  runRace() {
     this.interval = setInterval(() => {
       if (this.timeLeft > 0) {
         this.timeLeft--;
       } else {
-        this.timeLeft = 0;
+        this.timeLeft == 60;
+      }
+      for (let i = this.chevaux.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [this.chevaux[j], this.chevaux[i]] = [this.chevaux[i], this.chevaux[j]];
       }
     }, 1000);
+
+    setTimeout(() => {
+      clearInterval(this.interval);
+    }, 60000);
   }
-  stopTimer() {}
-
-  runCourse() {}
-
-  changeNameAndIndex() {
-    for (let cheval of this.chevaux) {
-      if (cheval._index < this.chevaux.length + 1) {
-        cheval._index++;
-      }
-      if (cheval._index >= this.chevaux.length + 1) {
-        cheval._index = 1;
-      }
-    }
-    let newChevauxArray = this.chevaux.sort((a, b) => a._index - b._index);
-    for (let newCheval of newChevauxArray) {
-      newCheval;
-    }
+  pauseTimer() {
+    setTimeout(() => {
+      clearInterval(this.interval);
+    });
+  }
+  stopTimer() {
+    setTimeout(() => {
+      clearInterval(this.interval);
+      this.timeLeft = 60;
+    });
   }
 }

@@ -1,4 +1,4 @@
-<p>
+<!-- <p>
   Animal: <b>{{ monchien.getName() }}</b>
 </p>
 <p [innerHTML]="moncontenu"></p>
@@ -18,22 +18,24 @@
   <p>
     Mon cheval: <b>{{ monCheval.getName() }}</b>
   </p>
-  <p>{{ monCheval.getIndex() }}</p>
-  <div>
-    <ul>
-      <li id="horsesList" *ngFor="let item of chevaux">
-        <span>
-          <b>{{ item.getIndex() }}</b>
-          <b>-</b>
-          <b>{{ item.getName() }}</b>
-        </span>
-      </li>
-    </ul>
-    <button (click)="changeNameAndIndex()">Lancer la course</button>
-  </div>
+  <p>{{ monCheval.getIndex() }}</p> -->
+<div>
+  <ul>
+    <li id="horsesList" *ngFor="let item of chevaux; index as i">
+      <span>
+        <b>{{ i + 1 }}</b>
+        <b>-</b>
+        <b>{{ item.getName() }}</b>
+      </span>
+      <!-- <div class="winner">And the winner is : {{ item.getName() }}</div> -->
+    </li>
+  </ul>
+  <button (click)="runRace()">Lancer la course</button>
 </div>
+<!-- </div> -->
+
 <div id="timer">
-  <button id="start" (click)="startTimer()">Start</button>
+  <button id="stop" (click)="pauseTimer()">Pause</button>
   <button id="stop" (click)="stopTimer()">Stop</button>
   <p>{{ timeLeft }} Seconds Left....</p>
 </div>
