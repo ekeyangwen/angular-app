@@ -1,4 +1,4 @@
-<!-- <p>
+<p>
   Animal: <b>{{ monchien.getName() }}</b>
 </p>
 <p [innerHTML]="moncontenu"></p>
@@ -18,27 +18,23 @@
   <p>
     Mon cheval: <b>{{ monCheval.getName() }}</b>
   </p>
-  <p>{{ monCheval.getIndex() }}</p> -->
-<div>
-  <ul>
-    <li id="horseNameAndIndex" *ngFor="let item of chevaux; index as i">
-      <img id="horse" src="../../../assets/Images/horse.png" alt="cheval" />
-      <span class="nameAndIndex">
-        <b>{{ i + 1 }}</b>
-        <b>-</b>
-        <b>{{ item.getName() }}</b>
-      </span>
-      <!-- <div class="winner">And the winner is : {{ item.getName() }}</div> -->
-    </li>
-  </ul>
-  <div class="button">
-    <button id="run" (click)="runRace()">Lancer la course</button>
+  <p>{{ monCheval.getIndex() }}</p>
+  <div>
+    <ul>
+      <li #horseList *ngFor="let item of chevaux; index as i">
+        <img id="horse" src="../../../assets/Images/horse.png" alt="cheval" />
+        <span>
+          <b>{{ i + 1 }}</b>
+          <b>-</b>
+          <b>{{ item.getName() }}</b>
+        </span>
+      </li>
+    </ul>
+    <button (click)="runRace()">Lancer la course</button>
   </div>
-  <!-- </div> -->
-
-  <div id="timer">
-    <button class="pause" (click)="pauseTimer()">Pause</button>
-    <button class="stop" (click)="stopTimer()">Stop</button>
-    <p>{{ timeLeft }} Seconds Left....</p>
-  </div>
+</div>
+<div id="timer">
+  <button id="start" (click)="pauseTimer()">Pause</button>
+  <button id="stop" (click)="stopTimer()">Stop</button>
+  <p>{{ timeLeft }} Seconds Left....</p>
 </div>

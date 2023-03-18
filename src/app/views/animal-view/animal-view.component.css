@@ -13,11 +13,13 @@ li {
   flex-direction: column;
   list-style: none;
   padding: 10px;
+  align-items: start;
 }
 #horse {
   transform: scaleX(-1);
   width: 100px;
 }
+
 #run {
   align-self: center;
 }

@@ -3,7 +3,7 @@ import { Chien } from "./chien";
 
 describe("Chien", () => {
   it("should create an instance", () => {
-    expect(new Chien("Roxy" 5)).toBeTruthy();
+    expect(new Chien("Roxy", 5)).toBeTruthy();
   });
 
   it("test dog name", () => {

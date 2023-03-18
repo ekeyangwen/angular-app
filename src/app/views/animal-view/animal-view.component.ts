@@ -1,8 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Chien } from "src/app/models/chien";
 import { Cheval } from "src/app/models/cheval";
-import { shuffle } from "lodash";
-let getRandomValues = require("get-random-values");
 
 @Component({
   selector: "app-animal-view",
@@ -67,7 +65,7 @@ export class AnimalViewComponent implements OnInit {
       }
       for (let i = this.chevaux.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [this.chevaux[j], this.chevaux[i]] = [this.chevaux[i], this.chevaux[j]];
+        [this.chevaux[i], this.chevaux[j]] = [this.chevaux[j], this.chevaux[i]];
       }
     }, 1000);
 
